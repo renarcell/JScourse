@@ -38,4 +38,28 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         });
     });
+
+    //timer
+    function setTimeTimer(elementSelector, endDateStr) {
+        let endDateObj = Date.parse(endDateStr),
+            dateNow = new Date();
+
+        let offset = Math.floor((endDateObj - dateNow)/1000),
+            days = Math.floor((offset / (60 * 60 * 24)) % 365),
+            hours = Math.floor((offset / (60 * 60)) % 24),
+            minutes = Math.floor((offset / (60)) % 60),
+            seconds = Math.floor(offset % 60);
+        
+        let el = document.querySelector(elementSelector);
+        el.querySelector('#days').textContent = (days);
+        el.querySelector('#hours').textContent = (hours);
+        el.querySelector('#minutes').textContent = (minutes);
+        el.querySelector('#seconds').textContent = (seconds);
+
+    };
+    setTimeTimer('.promotion__timer', '2021-08-14');
+    setInterval(() => {
+        setTimeTimer('.promotion__timer', '2021-08-14');
+    }, 1000);
+    
 });
