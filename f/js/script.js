@@ -61,5 +61,47 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(() => {
         setTimeTimer('.promotion__timer', '2021-08-14');
     }, 1000);
-    
+
+    //modals
+    function showModal() {
+        document.querySelector('.modal').style.display = 'block';
+        document.querySelector('.modal').classList.add('fade');
+        document.body.style.overflow = 'hidden';
+    };
+
+    function hideModal() {
+        document.querySelector('.modal').style.display = 'none';
+        document.querySelector('.modal').classList.remove('fade');
+        document.body.style.overflow = '';
+    };
+
+
+    document.querySelectorAll("[data-modal]").forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            showModal()
+        });
+    });
+    document.querySelectorAll("[data-close]").forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            hideModal();
+        });
+    });
+
+    document.querySelector('.modal').addEventListener('click', function(e) {
+        console.log(e.currentTarget);
+        console.log(e.target);
+        if (e.target.classList.contains('modal')) {
+            hideModal();
+        }
+    });
+    //show modal after 30 sec or scroll
+    function openScrollModal(e) {
+        if (document.documentElement.scrollTop > 2900) {
+            showModal();
+            document.removeEventListener('scroll', openScrollModal)
+        };
+    }
+    document.addEventListener('scroll', openScrollModal);
 });

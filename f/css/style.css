@@ -16,7 +16,7 @@
 .tabcontainer .active {
     display: flex;
 }
-.tabcontainer .fade {
+.fade {
     animation: fadeIn 1s;
 }
 
