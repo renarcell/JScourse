@@ -1,0 +1,9 @@
+.append-form {
+  margin-top: 0.75rem;
+}
+
+.append-input {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 3px;
+}

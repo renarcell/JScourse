@@ -1,23 +1,11 @@
+import $ from 'jquery';
+import {hideChilden, setActive} from './section/libs';
+
+$(function() {
+    console.log('re!');
+    }
+);
 document.addEventListener('DOMContentLoaded', function() {
-
-    function hideChilden(el, className = 'active') {
-        for (let child of el) {
-            if (child.classList.contains(className)) {
-                child.classList.remove(className);
-            };
-            if (child.classList.contains('fade')) {
-                child.classList.remove('fade');
-            };
-        }
-    };
-
-    function setActive(el, isAddFade = true, className = 'active') {
-        el.classList.add(className);
-        if (isAddFade) {
-            el.classList.add('fade');
-        }
-    };
-
     // let tabs = document.querySelectorAll('.tabheader__items .tabheader__item');
     function getTabNumber(colection, element) {
         let k = -1;
@@ -302,11 +290,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.calculating__result span').textContent = getCalories(obj).toFixed(0);
         } else {
             document.querySelector('.calculating__result span').textContent = "_____";
-
         }
-
     }
-    
-
-
 });
